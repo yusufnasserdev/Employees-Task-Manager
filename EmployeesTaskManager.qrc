@@ -1,0 +1,4 @@
+<RCC>
+  <qresource prefix="EmployeesTaskManager"/>
+  <qresource prefix="/res"/>
+</RCC>
