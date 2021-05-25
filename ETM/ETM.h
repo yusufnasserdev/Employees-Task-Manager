@@ -8,6 +8,8 @@
 #include <qdebug.h>
 #include<iostream>
 #include <regex>
+#include "SignUp.h"
+
 
 class ETM : public QMainWindow
 {
@@ -20,7 +22,10 @@ private:
     Ui::ETM ui;
     QRegularExpression re;
     QRegularExpression re2;
+    SignUp* signUp;
 private slots:
     bool isPasswordValid(QString password);
-    void on_pushButton_clicked();
+    void on_login_btn_clicked();
+    void on_tosignup_btn_clicked();
+
 };

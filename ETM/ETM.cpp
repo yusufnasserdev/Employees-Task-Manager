@@ -1,9 +1,8 @@
 #include "ETM.h"
-
 ETM::ETM(QWidget *parent)
     : QMainWindow(parent)
 {
-    this->setFixedSize(800, 600);
+    this->setFixedSize(400, 600);
     ui.setupUi(this);
 }
 
@@ -19,7 +18,15 @@ bool ETM::isPasswordValid(QString password)
     return re.match(password).hasMatch() && re2.match(password).hasMatch();
 }
 
-void ETM::on_pushButton_clicked()
+void ETM::on_login_btn_clicked()
 {
-    qDebug() << isPasswordValid(ui.lineEdit_2->text());
+    qDebug() << isPasswordValid(ui.main_password->text());
+}
+
+void ETM::on_tosignup_btn_clicked()
+{
+    signUp = new SignUp();
+    signUp->show();
+    this->close();
+    
 }
