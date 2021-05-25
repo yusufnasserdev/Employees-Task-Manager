@@ -217,7 +217,7 @@ QCheckBox::indicator:disabled
     <enum>QLineEdit::Password</enum>
    </property>
    <property name="placeholderText">
-    <string>Password</string>
+    <string>Confirm Password</string>
    </property>
   </widget>
   <widget class="QPushButton" name="signUp">

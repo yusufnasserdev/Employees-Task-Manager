@@ -7,7 +7,6 @@
 #include <QRegularExpressionValidator>
 #include <qdebug.h>
 #include<iostream>
-#include <regex>
 #include "SignUp.h"
 
 
@@ -17,14 +16,13 @@ class ETM : public QMainWindow
 
 public:
     ETM(QWidget *parent = Q_NULLPTR);
+  //  bool isPasswordValid(QString password);
 
 private:
     Ui::ETM ui;
-    QRegularExpression re;
-    QRegularExpression re2;
+    bool passwordValid;
     SignUp* signUp;
 private slots:
-    bool isPasswordValid(QString password);
     void on_login_btn_clicked();
     void on_tosignup_btn_clicked();
 
