@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>EmployeesTaskManagerClass</class>
- <widget class="QMainWindow" name="EmployeesTaskManagerClass">
+ <class>ETM</class>
+ <widget class="QMainWindow" name="ETM">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -43,11 +43,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SO
 */
 
 /*-----QWidget-----*/
-*{
-
-	background-image:url(&quot;res/test.jpg&quot;);
-	background-size: cover;
-}
 QWidget
 {
 	background-color: #292f45;
@@ -355,7 +350,7 @@ QPushButton::hover
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>
-  <include location="EmployeesTaskManager.qrc"/>
+  <include location="ETM.qrc"/>
  </resources>
  <connections/>
 </ui>

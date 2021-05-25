@@ -1,0 +1,4 @@
+<RCC>
+  <qresource prefix="ETM"/>
+  <qresource prefix="/res"/>
+</RCC>

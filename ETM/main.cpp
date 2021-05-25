@@ -1,10 +1,10 @@
-#include "EmployeesTaskManager.h"
+#include "ETM.h"
 #include <QtWidgets/QApplication>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    EmployeesTaskManager w;
+    ETM w;
     w.show();
     return a.exec();
 }
