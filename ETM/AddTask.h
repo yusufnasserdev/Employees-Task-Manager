@@ -10,11 +10,10 @@ class AddTask : public QWidget
 public:
 	AddTask(QWidget *parent = Q_NULLPTR);
 	~AddTask();
-	
-
 private:
 	Ui::AddTask ui;
 	
 private slots:
 	void on_addTask_btn_clicked();
+	void AddTask::closeEvent(QCloseEvent* event);
 };

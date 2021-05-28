@@ -1,11 +1,11 @@
 #include "ETM.h"
 #include "globalHeader.h"
+#include "globalVariables.h"
 ETM::ETM(QWidget *parent)
     : QMainWindow(parent)
 {
     this->setFixedSize(400, 600);
-    ui.setupUi(this);
-    
+    ui.setupUi(this);    
 }
 
 

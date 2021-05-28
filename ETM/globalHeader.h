@@ -31,3 +31,4 @@ QString  static fieldValidation(bool isValid, QString passwordText) {
 }
 QSqlDatabase static db;
 
+

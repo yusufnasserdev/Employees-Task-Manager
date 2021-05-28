@@ -14,10 +14,11 @@ public:
 
 private:
 	Ui::Dashboard ui;
-	AddTask* addTask;
+	AddTask* addTask = new AddTask();
 	
 	
 private slots:
 	void on_logout_btn_clicked();
 	void on_addTask_btn_clicked();
+	void Dashboard::paintEvent(QPaintEvent* event);
 };

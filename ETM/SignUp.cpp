@@ -1,5 +1,6 @@
 #include "SignUp.h"
 #include "globalHeader.h"
+#include "globalVariables.h"
 #include "ETM.h"
 
 
@@ -9,6 +10,7 @@ SignUp::SignUp(QWidget *parent)
 {
 	this->setFixedSize(800, 600);
 	ui.setupUi(this);
+	setAttribute(Qt::WA_DeleteOnClose);
 	ui.Warning1->hide();
 	ui.Warning1->setDisabled(1);
 	ui.Warning2->hide();
@@ -33,7 +35,7 @@ void SignUp::on_tosignIn_btn_clicked()
 {
 	ETM* signIn = new ETM();
 	signIn->show();
-	this->close();
+	close();
 }
 
 void SignUp::on_sign_email_textChanged(QString email)
