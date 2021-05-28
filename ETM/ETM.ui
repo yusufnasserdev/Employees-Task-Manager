@@ -84,7 +84,7 @@ QPushButton::hover
 
 QPushButton::pressed
 {
-	background-color: #ff6b35;
+	background-color: rgb(32, 37, 54);
 	color: #fff;
 
 }
@@ -237,18 +237,7 @@ QCheckBox::indicator:disabled
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">QPushButton
-{
-	background-color: #3D5AFA;
-	color: #fff;
-}
-
-
-QPushButton::hover
-{
-	background-color: #22348c;
-	border-color: #22348c;
-}</string>
+     <string notr="true">border-color: rgb(32, 37, 54)</string>
     </property>
     <property name="text">
      <string>Login</string>

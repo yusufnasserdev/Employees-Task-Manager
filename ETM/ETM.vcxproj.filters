@@ -43,6 +43,12 @@
     <ClCompile Include="SignUp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Dashboard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AddTask.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
@@ -51,9 +57,21 @@
     <QtMoc Include="SignUp.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="Dashboard.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="AddTask.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="SignUp.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="Dashboard.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="AddTask.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

@@ -5,12 +5,17 @@ ETM::ETM(QWidget *parent)
 {
     this->setFixedSize(400, 600);
     ui.setupUi(this);
+    
 }
 
 
 
 void ETM::on_login_btn_clicked()
 {
+
+    dashboard = new Dashboard();
+    dashboard->show();
+    close();
     //todo
     /*
     * to validated when the db is ready

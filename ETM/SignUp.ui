@@ -78,7 +78,7 @@ QPushButton::hover
 
 QPushButton::pressed
 {
-	background-color: #ff6b35;
+	background-color: rgb(32, 37, 54);
 	color: #fff;
 
 }
@@ -230,18 +230,7 @@ QCheckBox::indicator:disabled
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">QPushButton
-{
-	background-color: #3D5AFA;
-	color: #fff;
-}
-
-
-QPushButton::hover
-{
-	background-color: #22348c;
-	border-color: #22348c;
-}</string>
+    <string notr="true">border-color: rgb(32, 37, 54)</string>
    </property>
    <property name="text">
     <string>Sign Up</string>
@@ -422,7 +411,7 @@ background-color: rgba(78, 78, 78, 10);</string>
     </rect>
    </property>
    <property name="toolTip">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; color:#ffffff;&quot;&gt;Please re enter the Password&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; color:#ffffff;&quot;&gt;Please enter the password again&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
    <property name="whatsThis">
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Please Enter a Valid E-mail&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>

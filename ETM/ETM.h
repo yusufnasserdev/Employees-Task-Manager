@@ -8,6 +8,7 @@
 #include <qdebug.h>
 #include<iostream>
 #include "SignUp.h"
+#include "Dashboard.h"
 
 
 class ETM : public QMainWindow
@@ -22,6 +23,7 @@ private:
     Ui::ETM ui;
     bool passwordValid;
     SignUp* signUp;
+    Dashboard* dashboard;
 private slots:
     void on_login_btn_clicked();
     void on_tosignup_btn_clicked();

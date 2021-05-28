@@ -13,7 +13,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{0D12E0AB-21DC-4C14-B62E-E91325D92D4E}</ProjectGuid>
     <Keyword>QtVS_v304</Keyword>
-    <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">10.0.19041.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">10.0.18362.0</WindowsTargetPlatformVersion>
     <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">10.0.19041.0</WindowsTargetPlatformVersion>
     <QtMsBuild Condition="'$(QtMsBuild)'=='' OR !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
   </PropertyGroup>
@@ -85,8 +85,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AddTask.cpp" />
+    <ClCompile Include="Dashboard.cpp" />
     <ClCompile Include="SignUp.cpp" />
     <QtRcc Include="ETM.qrc" />
+    <QtUic Include="AddTask.ui" />
+    <QtUic Include="Dashboard.ui" />
     <QtUic Include="ETM.ui" />
     <QtMoc Include="ETM.h" />
     <ClCompile Include="ETM.cpp" />
@@ -100,6 +104,8 @@
     <QtMoc Include="SignUp.h" />
   </ItemGroup>
   <ItemGroup>
+    <QtMoc Include="Dashboard.h" />
+    <QtMoc Include="AddTask.h" />
     <ClInclude Include="globalHeader.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dashboard</class>
+ <widget class="QWidget" name="Dashboard">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>773</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dashboard</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/*Copyright (c) DevSec Studio. All rights reserved.
+
+MIT License
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED *AS IS*, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+/*-----QWidget-----*/
+QWidget
+{
+	background-color: #292f45;
+	color: #fff;
+	border-color: #000000;
+
+}
+
+
+/*-----QLabel-----*/
+QLabel
+{
+	background-color: #292f45;
+	color: #fff;
+	border-color: #000000;
+
+}
+
+
+/*-----QPushButton-----*/
+QPushButton
+{
+	font-weight: bold;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #3D5AFA;
+	padding: 10px;
+
+}
+
+
+QPushButton::hover
+{
+	
+
+}
+
+
+QPushButton::pressed
+{
+	background-color: rgb(32, 37, 54);
+	color: #fff;
+
+}
+
+
+/*-----QToolButton-----*/
+QToolButton
+{
+	background-color: #292f45;
+	color: #000000;
+	border-style: solid;
+	border-color: #000000;
+
+}
+
+
+QToolButton::hover
+{
+	background-color: #fc7c11;
+	color: #000000;
+	padding: 2px;
+	border-radius: 15px;
+	border-color: #fc7c11;
+
+}
+
+
+QToolButton::pressed
+{
+	background-color: #fc7c11;
+	color: #000000;
+	border-style: solid;
+	border-width: 2px;
+
+}
+
+
+/*-----QLineEdit-----*/
+QLineEdit{
+	background-color: #292f45;
+	color: #fff;
+	font-weight: bold;
+	border-style: solid;
+	border-width: 2px;
+	border-top: 0px;
+	border-left: 0px;
+	border-right: 0px;
+	border-color: #b9b9bb;
+	padding: 10px;
+
+}
+
+
+/*-----QCheckBox-----*/
+QCheckBox
+{
+	background-color: transparent;
+	color: #b9b9bb;
+	font-weight: bold;
+
+}
+
+
+QCheckBox::indicator
+{
+    color: #b1b1b1;
+    background-color: #00111d;
+    border: 1px solid #f0742f;
+    width: 12px;
+    height: 12px;
+
+}
+
+
+QCheckBox::indicator:checked
+{
+    image:url(&quot;./ressources/check.png&quot;); /*To replace*/
+	background-color: #1f2b2b;
+    border: 1px solid #f0742f;
+
+}
+
+
+QCheckBox::indicator:unchecked:hover
+{
+    border: 1px solid #f0742f;
+
+}
+
+
+QCheckBox::disabled
+{
+	color: #656565;
+
+}
+
+
+QCheckBox::indicator:disabled
+{
+	background-color: #656565;
+	color: #656565;
+    border: 1px solid #656565;
+
+}
+</string>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>20</y>
+     <width>101</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Username</string>
+   </property>
+  </widget>
+  <widget class="QTableView" name="tableView">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>240</y>
+     <width>731</width>
+     <height>321</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="addTask_btn">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>190</y>
+     <width>161</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-color: rgb(32, 37, 54)</string>
+   </property>
+   <property name="text">
+    <string>Addtask</string>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>res/add-button.png</normaloff>res/add-button.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>32</width>
+     <height>32</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="logout_btn">
+   <property name="geometry">
+    <rect>
+     <x>-40</x>
+     <y>40</y>
+     <width>150</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/*-----QPushButton-----*/
+QPushButton
+{
+	background-color: #292f45;
+	color: #b9b9bb;
+	font-weight: bold;
+	border-color: #292f45;
+	text-decoration:underline;
+}
+
+QPushButton::hover
+{
+	color: #fff;
+}</string>
+   </property>
+   <property name="text">
+    <string>Log out</string>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
+   </property>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>
