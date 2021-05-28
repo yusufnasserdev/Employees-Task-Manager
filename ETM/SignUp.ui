@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
+    <width>753</width>
     <height>600</height>
    </rect>
   </property>
@@ -189,7 +189,7 @@ QCheckBox::indicator:disabled
    <property name="geometry">
     <rect>
      <x>80</x>
-     <y>220</y>
+     <y>240</y>
      <width>610</width>
      <height>50</height>
     </rect>
@@ -208,7 +208,7 @@ QCheckBox::indicator:disabled
    <property name="geometry">
     <rect>
      <x>80</x>
-     <y>380</y>
+     <y>400</y>
      <width>610</width>
      <height>50</height>
     </rect>
@@ -224,7 +224,7 @@ QCheckBox::indicator:disabled
    <property name="geometry">
     <rect>
      <x>290</x>
-     <y>460</y>
+     <y>470</y>
      <width>200</width>
      <height>40</height>
     </rect>
@@ -251,10 +251,13 @@ QPushButton::hover
    <property name="geometry">
     <rect>
      <x>80</x>
-     <y>300</y>
+     <y>320</y>
      <width>610</width>
      <height>50</height>
     </rect>
+   </property>
+   <property name="text">
+    <string/>
    </property>
    <property name="echoMode">
     <enum>QLineEdit::Password</enum>
@@ -267,7 +270,7 @@ QPushButton::hover
    <property name="geometry">
     <rect>
      <x>80</x>
-     <y>150</y>
+     <y>160</y>
      <width>610</width>
      <height>50</height>
     </rect>
@@ -355,8 +358,101 @@ QPushButton::hover
     <bool>true</bool>
    </property>
   </widget>
+  <widget class="QPushButton" name="Warning1">
+   <property name="geometry">
+    <rect>
+     <x>650</x>
+     <y>250</y>
+     <width>41</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; color:#ffffff;&quot;&gt;Please Enter a Valid E-mail&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="whatsThis">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Please Enter a Valid E-mail&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: none;
+background-color: rgba(78, 78, 78, 10);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>res/exclamation-mark.png</normaloff>res/exclamation-mark.png</iconset>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="Warning2">
+   <property name="geometry">
+    <rect>
+     <x>650</x>
+     <y>330</y>
+     <width>41</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; color:#ffffff;&quot;&gt;The passowrd should contains numbers, special charcters, uppercase and lowercase letters&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="whatsThis">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Please Enter a Valid E-mail&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: none;
+background-color: rgba(78, 78, 78, 10);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>res/exclamation-mark.png</normaloff>res/exclamation-mark.png</iconset>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="Warning3">
+   <property name="geometry">
+    <rect>
+     <x>650</x>
+     <y>410</y>
+     <width>41</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; color:#ffffff;&quot;&gt;Please re enter the Password&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="whatsThis">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Please Enter a Valid E-mail&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: none;
+background-color: rgba(78, 78, 78, 10);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>res/exclamation-mark.png</normaloff>res/exclamation-mark.png</iconset>
+   </property>
+  </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+  <tabstop>sign_firstname</tabstop>
+  <tabstop>sign_lastname</tabstop>
+  <tabstop>sign_username</tabstop>
+  <tabstop>sign_email</tabstop>
+  <tabstop>sign_password</tabstop>
+  <tabstop>sign_confirmpassword</tabstop>
+  <tabstop>signUp</tabstop>
+  <tabstop>tosignIn_btn</tabstop>
+  <tabstop>Warning1</tabstop>
+  <tabstop>Warning2</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

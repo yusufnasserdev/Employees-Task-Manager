@@ -3,7 +3,10 @@
 #include <QtWidgets/QMainWindow>
 #include <QRegularExpression>
 #include <QRegularExpressionValidator>
+#include <QtSql/QSqlDatabase>
+#include <QtSql/QSqlQuery>
 #include <qdebug.h>
+#include <Qthread>
 bool static isPasswordValid(QString password) {
 QRegularExpression re;
 QRegularExpression re2;
@@ -26,4 +29,5 @@ QString  static fieldValidation(bool isValid, QString passwordText) {
     }
     return "background-color: rgba(240, 78, 78, 50);";
 }
+QSqlDatabase static db;
 
