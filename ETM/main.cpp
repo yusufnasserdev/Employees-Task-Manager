@@ -3,7 +3,7 @@
 #include "SignUp.h"
 #include "globalVariables.h"
 
-bool isshown = false;
+bool isShown = false;
 
 int main(int argc, char *argv[])
 {

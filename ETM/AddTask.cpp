@@ -25,5 +25,5 @@ void AddTask::on_addTask_btn_clicked()
 
 void AddTask::closeEvent(QCloseEvent* event)
 {
-	isshown = false;
+	isShown = false;
 }

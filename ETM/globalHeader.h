@@ -9,15 +9,10 @@
 #include <Qthread>
 bool static isPasswordValid(QString password) {
 QRegularExpression re;
-QRegularExpression re2;
-    QString spicalCharactersPattern = "[!@#$%^&*(),.?:{} | <>]";
-    QString pattern = "^[a-zA-Z0-9!@#$%&*]{8,40}$";
-    //"^[a-zA-Z0-9!@#$%&*]{8,40}$"
-    //^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){12,123}$
+    QString pattern = "^(?=.*\\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\\w\\d\\s:])([^\\s]){8,40}$";
     re.setPattern(pattern);
-    re2.setPattern(spicalCharactersPattern);
-    std::cout << password.toStdString() << std::endl;
-    return re.match(password).hasMatch() && re2.match(password).hasMatch();
+    qDebug() << password;
+    return re.match(password).hasMatch();
 }
 QString  static fieldValidation(bool isValid, QString passwordText) {
 
