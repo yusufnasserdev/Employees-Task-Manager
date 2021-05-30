@@ -21,3 +21,19 @@ void Task::postpone(Date newDeadline)
 {
 	this->m_deadline = newDeadline;
 }
+
+void Task::retrieve()
+{
+}
+
+void Task::add()
+{
+}
+
+void Task::update()
+{
+}
+
+void Task::remove()
+{
+}

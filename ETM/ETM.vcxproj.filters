@@ -55,7 +55,7 @@
     <ClCompile Include="Task.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SortedTasks.cpp">
+    <ClCompile Include="SqlInterface.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -100,7 +100,7 @@
     <ClInclude Include="Date.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SortedTasks.h">
+    <ClInclude Include="SqlInterface.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

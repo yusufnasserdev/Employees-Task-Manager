@@ -2,10 +2,11 @@
 #include <iostream>
 #include "Date.h"
 #include "Employee.h"
+#include "SqlInterface.h"
 
 using namespace std;
 
-class Task
+class Task : public SqlInterface
 {
 private:
 	string m_title, m_description;
@@ -21,5 +22,10 @@ public:
 
 	void edit(const Task&);
 	void postpone(Date);
+
+	void retrieve() override;
+	void add() override;
+	void update() override;
+	void remove() override;
 };
 
