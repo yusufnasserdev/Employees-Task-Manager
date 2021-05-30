@@ -99,7 +99,6 @@
     <ClCompile Include="Dashboard.cpp" />
     <ClCompile Include="Employee.cpp" />
     <ClCompile Include="SignUp.cpp" />
-    <ClCompile Include="SortedTasks.cpp" />
     <ClCompile Include="Task.cpp" />
     <QtRcc Include="ETM.qrc" />
     <QtUic Include="AddTask.ui" />
@@ -120,7 +119,6 @@
     <ClInclude Include="Employee.h" />
     <ClInclude Include="globalVariables.h" />
     <ClInclude Include="Date.h" />
-    <ClInclude Include="SortedTasks.h" />
     <ClInclude Include="Task.h" />
     <QtMoc Include="Dashboard.h" />
     <QtMoc Include="AddTask.h" />
