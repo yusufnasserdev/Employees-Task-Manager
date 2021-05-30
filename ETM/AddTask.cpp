@@ -16,11 +16,13 @@ AddTask::~AddTask()
 
 void AddTask::on_addTask_btn_clicked()
 {
+	// Debug area
 	//Dashboard* dashboard = new Dashboard();
 	//dashboard->show();'
-	close();
 	//ui.lineEdit->setText("");
 	//ui.lineEdit_2->setText("");
+	// End Debug
+	close();
 }
 
 void AddTask::closeEvent(QCloseEvent* event)

@@ -62,6 +62,7 @@ void SignUp::on_sign_password_textChanged(QString password)
 	else {
 		ui.passwordWarning->setHidden(1);
 	}
+	//Debug area
 	/*
 	db = QSqlDatabase::addDatabase("QSQLITE");
 	db.setDatabaseName("ETM_database.db");
@@ -74,6 +75,7 @@ void SignUp::on_sign_password_textChanged(QString password)
 	d.clear();
 	db.close();
 	*/
+	//End Debug
 }
 
 

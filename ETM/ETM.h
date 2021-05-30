@@ -17,7 +17,6 @@ class ETM : public QMainWindow
 
 public:
     ETM(QWidget *parent = Q_NULLPTR);
-  //  bool isPasswordValid(QString password);
 
 private:
     Ui::ETM ui;
