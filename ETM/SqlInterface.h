@@ -7,13 +7,15 @@ using namespace std;
 
 class SqlInterface
 {
-private:
-	QSqlDatabase db;
-	
 	
 public:
+	QSqlDatabase db;
+
 	SqlInterface();
 	~SqlInterface();
+
+	bool opendb();
+	void closedb();
 
 	virtual void retrieve() = 0;
 	virtual void add() = 0;

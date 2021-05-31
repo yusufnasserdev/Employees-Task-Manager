@@ -6,6 +6,12 @@ Task::Task(string title, string description, int id, short priority, Date assign
 {
 }
 
+Task::Task(int id, Employee assignee)
+	: m_id(id), m_assignee(assignee)
+{
+	retrieve();
+}
+
 Task::~Task()
 {
 }
@@ -24,6 +30,20 @@ void Task::postpone(Date newDeadline)
 
 void Task::retrieve()
 {
+	opendb();
+	QSqlQuery qry;
+	qry.prepare("select * from Task where employeeUsername = :assignee");
+	qry.bindValue(":assignee", m_assignee.getUsername().c_str());
+
+	if (qry.exec()) {
+		while (qry.next()) {
+			m_title = qry.value(0).toString().toUtf8().constData();
+			m_description = qry.value(1).toString().toUtf8().constData();
+			
+		}
+	}
+	qry.clear();
+	closedb();
 }
 
 void Task::add()
