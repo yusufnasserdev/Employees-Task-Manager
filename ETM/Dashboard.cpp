@@ -26,10 +26,10 @@ void Dashboard::on_logout_btn_clicked()
 
 void Dashboard::on_addTask_btn_clicked()
 {
-	if (!isshown) {
+	if (!isShown) {
 		 addTask = new AddTask();
 		 addTask->show();
-		 isshown = true;
+		 isShown = true;
 	}
 	else {
 		qDebug() << "not today";
@@ -41,5 +41,5 @@ void Dashboard::on_addTask_btn_clicked()
 
 void Dashboard::paintEvent(QPaintEvent* event)
 {
-	ui.addTask_btn->setDisabled(isshown);
+	ui.addTask_btn->setDisabled(isShown);
 }

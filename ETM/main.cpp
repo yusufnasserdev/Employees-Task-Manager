@@ -3,7 +3,6 @@
 #include "SignUp.h"
 #include "globalVariables.h"
 
-
 bool isShown = false;
 
 int main(int argc, char* argv[])

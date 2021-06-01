@@ -347,7 +347,7 @@ QPushButton::hover
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="QPushButton" name="Warning1">
+  <widget class="QPushButton" name="emailWarning">
    <property name="geometry">
     <rect>
      <x>650</x>
@@ -374,7 +374,7 @@ background-color: rgba(78, 78, 78, 10);</string>
      <normaloff>res/exclamation-mark.png</normaloff>res/exclamation-mark.png</iconset>
    </property>
   </widget>
-  <widget class="QPushButton" name="Warning2">
+  <widget class="QPushButton" name="passwordWarning">
    <property name="geometry">
     <rect>
      <x>650</x>
@@ -401,7 +401,7 @@ background-color: rgba(78, 78, 78, 10);</string>
      <normaloff>res/exclamation-mark.png</normaloff>res/exclamation-mark.png</iconset>
    </property>
   </widget>
-  <widget class="QPushButton" name="Warning3">
+  <widget class="QPushButton" name="confirmPasswordWarning">
    <property name="geometry">
     <rect>
      <x>650</x>
@@ -439,8 +439,8 @@ background-color: rgba(78, 78, 78, 10);</string>
   <tabstop>sign_confirmpassword</tabstop>
   <tabstop>signUp</tabstop>
   <tabstop>tosignIn_btn</tabstop>
-  <tabstop>Warning1</tabstop>
-  <tabstop>Warning2</tabstop>
+  <tabstop>emailWarning</tabstop>
+  <tabstop>passwordWarning</tabstop>
  </tabstops>
  <resources/>
  <connections/>
