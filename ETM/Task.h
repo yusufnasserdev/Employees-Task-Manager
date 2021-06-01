@@ -11,7 +11,7 @@ class Task : public SqlInterface
 {
 private:
 	string m_title, m_description;
-	const int m_id;
+	int m_id;
 	short m_priority;
 	QDateTime m_assigningDate, m_deadline;
 	const Employee m_assignee;
@@ -20,7 +20,7 @@ private:
 	void retrieve() override;
 
 public:
-	Task(string, string, int, short, QDateTime, QDateTime, Employee);
+	Task(string, string, short, QDateTime, QDateTime, Employee);
 	Task(int, Employee);
 	~Task();
 	

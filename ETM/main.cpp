@@ -7,6 +7,10 @@
 #include<string>
 #include<iostream>
 #include <QDir>
+#include <QVariant>
+#include "SqlInterface.h"
+
+
 bool isshown = false;
 using namespace std;
 
@@ -19,10 +23,22 @@ using namespace std;
 //}
 
 int main() {
-	QString username = "ela5tabot";
+
+	
+	QString username = "aymannerd";
 	QString password = "123456789";
-	Employee ramy= Employee(username.toStdString(), password.toStdString());
-	Task t0(1,ramy);
+	QString temp = "2021-07-04 16:22:00";
+	
+	QDateTime assdate = QDateTime::currentDateTime();
+	QDateTime enddate  = QDateTime::fromString(temp, "yyyy-MM-dd hh:mm:ss");
+	//qDebug() << enddate;
+	Employee ela5tabot= Employee(username.toStdString(), password.toStdString());
+
+	Task t1(12,ela5tabot);
+	
+
 
 	return 0;
 }
+
+
