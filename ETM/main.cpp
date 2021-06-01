@@ -3,8 +3,12 @@
 #include "SignUp.h"
 #include "globalVariables.h"
 #include "Employee.h"
-
+#include "Task.h"
+#include<string>
+#include<iostream>
+#include <QDir>
 bool isshown = false;
+using namespace std;
 
 //int main(int argc, char *argv[])
 //{
@@ -15,8 +19,10 @@ bool isshown = false;
 //}
 
 int main() {
-	Employee e1("hamada", "mayada","hamadamayada", "hamadamayada@gmail.com","123456789");
-	e1.add();
+	QString username = "ela5tabot";
+	QString password = "123456789";
+	Employee ramy= Employee(username.toStdString(), password.toStdString());
+	Task t0(1,ramy);
 
 	return 0;
 }
