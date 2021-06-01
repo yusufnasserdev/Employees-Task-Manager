@@ -1,11 +1,11 @@
 #include "Task.h"
 
 Task::Task(string title, string description, int id, short priority, QDateTime deadline, Employee assignee)
-	: m_title(title), m_description(description), m_id(id), 
+	: m_title(title), m_description(description), m_id(id),
 	m_priority(priority), m_deadline(deadline), m_assignee(assignee)
 {
 }
- 
+
 Task::Task(string title, string description, short priority, QDateTime assigningDate, QDateTime deadline, Employee assignee)
 	: m_title(title), m_description(description), m_priority(priority),
 	m_assigningDate(assigningDate), m_deadline(deadline), m_assignee(assignee)
@@ -52,7 +52,7 @@ void Task::retrieve()
 	qry.bindValue(":m_id", m_id);
 
 	if (qry.exec()) {
-		cout << "Retrieved\n"	;
+		cout << "Retrieved\n";
 		int i = 0;
 		while (qry.next()) {
 			m_title = qry.value(0).toString().toUtf8().constData();

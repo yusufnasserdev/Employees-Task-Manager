@@ -7,7 +7,7 @@ using namespace std;
 
 class SqlInterface
 {
-	
+
 public:
 	QSqlDatabase db;
 
