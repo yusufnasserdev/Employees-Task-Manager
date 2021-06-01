@@ -11,7 +11,6 @@ private:
 	void retrieve() override;
 
 public:
-
 	Employee(string, string, string, string, string);
 	Employee(string, string);
 	~Employee();

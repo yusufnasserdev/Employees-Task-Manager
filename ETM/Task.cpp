@@ -1,9 +1,16 @@
 #include "Task.h"
 
+Task::Task(string title, string description, int id, short priority, QDateTime deadline, Employee assignee)
+	: m_title(title), m_description(description), m_id(id), 
+	m_priority(priority), m_deadline(deadline), m_assignee(assignee)
+{
+}
+ 
 Task::Task(string title, string description, short priority, QDateTime assigningDate, QDateTime deadline, Employee assignee)
 	: m_title(title), m_description(description), m_priority(priority),
 	m_assigningDate(assigningDate), m_deadline(deadline), m_assignee(assignee)
 {
+	add();
 }
 
 Task::Task(int id, Employee assignee)
@@ -21,38 +28,44 @@ void Task::edit(const Task& editedTask)
 	this->m_description = editedTask.m_description;
 	this->m_title = editedTask.m_title;
 	this->m_priority = editedTask.m_priority;
+
+	update();
 }
 
-void Task::postpone(QDateTime newDeadline)
+void Task::postpone(const QDateTime& newDeadline)
 {
 	this->m_deadline = newDeadline;
+
+	update();
+}
+
+int Task::getId()
+{
+	return m_id;
 }
 
 void Task::retrieve()
 {
 	opendb();
 	QSqlQuery qry;
-	qry.prepare("select * from Task where employeeUsername = :assignee");
-	qry.bindValue(":assignee", m_assignee.getUsername().c_str());
+	qry.prepare("select title, description, assigningDate, endingDate, priority from Task where id = :m_id");
+	qry.bindValue(":m_id", m_id);
 
 	if (qry.exec()) {
+		cout << "Retrieved\n"	;
+		int i = 0;
 		while (qry.next()) {
-			m_title = qry.value(1).toString().toUtf8().constData();
-			m_description = qry.value(2).toString().toUtf8().constData();
-			m_assigningDate = qry.value(3).toDateTime();
-			m_deadline = qry.value(4).toDateTime();
-			m_priority = qry.value(5).toInt();
+			m_title = qry.value(0).toString().toUtf8().constData();
+			m_description = qry.value(1).toString().toUtf8().constData();
+			m_assigningDate = QDateTime::fromString(qry.value(2).toString().toUtf8().constData(), m_dateFormat);
+			m_deadline = QDateTime::fromString(qry.value(3).toString().toUtf8().constData(), m_dateFormat);
+			m_priority = qry.value(4).toInt();
 		}
-		qDebug() << m_assigningDate << endl;
 	}
+
 	qry.clear();
 	closedb();
 }
-
-/*QString dd ="2018-08-01";
-  qDebug() << "ddddd" << dd;
-  QDate da=QDate::fromString(dd,"yyyy-MM-dd");
-*/
 
 void Task::add()
 {
@@ -62,12 +75,12 @@ void Task::add()
 
 	qry.bindValue(":m_title", m_title.c_str());
 	qry.bindValue(":m_description", m_description.c_str());
-	qry.bindValue(":m_assigningDate", m_assigningDate.toString("yyyy-MM-dd hh:mm:ss").toStdString().c_str());
-	qry.bindValue(":m_deadline", m_deadline.toString("yyyy-MM-dd hh:mm:ss").toStdString().c_str());
+	qry.bindValue(":m_assigningDate", m_assigningDate.toString(m_dateFormat).toStdString().c_str());
+	qry.bindValue(":m_deadline", m_deadline.toString(m_dateFormat).toStdString().c_str());
 	qry.bindValue(":m_priority", m_priority);
-	qry.bindValue(":m_employeeUsername",m_assignee.getUsername().c_str());
-	//qry.exec();
-	cout << qry.exec() << endl;
+	qry.bindValue(":m_employeeUsername", m_assignee.getUsername().c_str());
+
+	qry.exec();
 	qry.clear();
 	closedb();
 }
@@ -80,15 +93,26 @@ void Task::update()
 
 	qry.bindValue(":m_title", m_title.c_str());
 	qry.bindValue(":m_description", m_description.c_str());
-	qry.bindValue(":m_deadline", m_deadline.toString().toStdString().c_str());
-	qry.bindValue(":m_priority", to_string(m_priority).c_str());
-	qry.bindValue(":m_id", to_string(m_id).c_str());
+	qry.bindValue(":m_deadline", m_deadline.toString(m_dateFormat).toStdString().c_str());
+	qry.bindValue(":m_priority", m_priority);
+	qry.bindValue(":m_id", m_id);
+
 	qry.exec();
 	qry.clear();
 	closedb();
-
 }
 
 void Task::remove()
 {
+	opendb();
+	QSqlQuery qry;
+	qry.prepare("DELETE FROM Task WHERE id = :m_id");
+
+	qry.bindValue(":m_id", to_string(m_id).c_str());
+
+	qry.exec();
+	qry.clear();
+	closedb();
 }
+
+const char* Task::m_dateFormat = "yyyy-MM-dd hh:mm:ss";

@@ -15,7 +15,6 @@ Employee::Employee(string username, string password)
 	: m_username(username), m_password(password)
 {
 	retrieve();
-	cout << "dvhjd\n";
 }
 
 Employee::~Employee()
@@ -29,7 +28,6 @@ void Employee::retrieve()
 	qry.prepare("select firstName, secondName , email from Employee where username = :m_username");
 	qry.bindValue(":m_username", m_username.c_str());
 	if (qry.exec()) {
-		cout << "exe\n";
 		while (qry.next()) {
 			m_firstName = qry.value(0).toString().toUtf8().constData();
 			m_lastName = qry.value(1).toString().toUtf8().constData();
@@ -66,6 +64,5 @@ void Employee::remove()
 
 string Employee::getUsername() const
 {
-	
 	return m_username;
 }
