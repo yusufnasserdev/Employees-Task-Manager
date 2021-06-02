@@ -60,12 +60,12 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(QMake_INCLUDEPATH_);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(QMake_INCLUDEPATH_);$(Qt_LIBS_)$(Qt_LIBPATH_)$(Qt_INCLUDEPATH_);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(QMake_INCLUDEPATH_);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(QMake_INCLUDEPATH_);$(Qt_LIBS_)$(Qt_LIBPATH_)$(Qt_INCLUDEPATH_);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
@@ -99,6 +99,7 @@
     <ClCompile Include="Dashboard.cpp" />
     <ClCompile Include="Employee.cpp" />
     <ClCompile Include="SignUp.cpp" />
+    <ClCompile Include="SqlInterface.cpp" />
     <ClCompile Include="Task.cpp" />
     <QtRcc Include="ETM.qrc" />
     <QtUic Include="AddTask.ui" />
@@ -118,7 +119,7 @@
   <ItemGroup>
     <ClInclude Include="Employee.h" />
     <ClInclude Include="globalVariables.h" />
-    <ClInclude Include="Date.h" />
+    <ClInclude Include="SqlInterface.h" />
     <ClInclude Include="Task.h" />
     <QtMoc Include="Dashboard.h" />
     <QtMoc Include="AddTask.h" />

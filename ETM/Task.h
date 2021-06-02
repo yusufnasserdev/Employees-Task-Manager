@@ -1,25 +1,41 @@
 #pragma once
 #include <iostream>
-#include "Date.h"
 #include "Employee.h"
+#include "SqlInterface.h"
+#include <QDateTime>
 
 using namespace std;
 
-class Task
+class Task : public SqlInterface
 {
 private:
 	string m_title, m_description;
-	const int m_id;
+	int m_id;
 	short m_priority;
-	const Date m_assigningDate;
-	Date m_deadline;
+	QDateTime m_assigningDate, m_deadline;
 	const Employee m_assignee;
 
+	void retrieve() override;
+	void add() override;
+	void update() override;
+
 public:
-	Task(string, string, int, short, Date, Date, Employee);
+	Task() = delete;
+	// Create a new task to use in runtime but won't be added to the DB
+	Task(string, string, int, short, QDateTime, Employee);
+	// Create a new task and add it to the DB
+	Task(string, string, short, QDateTime, QDateTime, Employee);
+	// Create an object to hold an existent task and retrieve its data from the DB
+	Task(int, Employee);
 	~Task();
 
+	void remove() override;
+
 	void edit(const Task&);
-	void postpone(Date);
+	void postpone(const QDateTime&);
+
+	int getId();
+
+	static const char* m_dateFormat;
 };
 
