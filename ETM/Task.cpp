@@ -39,7 +39,17 @@ void Task::postpone(const QDateTime& newDeadline)
 	update();
 }
 
-int Task::getId()
+string Task::getTitle() const
+{
+	return m_title;
+}
+
+string Task::getDescription() const
+{
+	return m_description;
+}
+
+int Task::getId() const
 {
 	return m_id;
 }
@@ -52,6 +62,11 @@ short Task::getPriority() const
 QDateTime Task::getDeadline() const
 {
 	return m_deadline;
+}
+
+QDateTime Task::getAssigningDate() const
+{
+	return m_assigningDate;
 }
 
 void Task::retrieve()

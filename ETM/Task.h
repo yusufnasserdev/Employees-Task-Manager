@@ -32,9 +32,12 @@ public:
 	void edit(const Task&);
 	void postpone(const QDateTime&);
 
-	int getId();
+	string getTitle() const;
+	string getDescription() const;
+	int getId() const;
 	short getPriority() const;
 	QDateTime getDeadline() const;
+	QDateTime getAssigningDate() const;
 
 	static const char* m_dateFormat;
 };

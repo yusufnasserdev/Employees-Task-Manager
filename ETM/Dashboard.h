@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QWidget>
+#include <QStandardItemModel>
 #include <queue>
 #include "ui_Dashboard.h"
 #include "globalHeader.h"
@@ -20,19 +21,28 @@ public:
 
 private:
 	Ui::Dashboard ui;
-	AddTask* addTask = new AddTask();
+	AddTask* addTask;
 	Employee m_user;
 	priority_queue<Task, vector<Task>, ComparePriority> *m_pqPriority;
 	priority_queue<Task, vector<Task>, CompareDeadline> *m_pqDeadline;
+	QStandardItemModel* model;
+	QStandardItem* parentItem, *item;
+
+	bool priorityReversed = true, deadlineReversed = true;
 
 	enum class SortingCriteria {
-		priority, deadline
+		priority, priorityReversed, deadline, deadlineReversed
 	};
 
-	void getTasks(SortingCriteria sortingCriteria);
+	void getTasks();
+	void viewTasks(SortingCriteria sortingCriteria);
 
 private slots:
 	void on_logout_btn_clicked();
 	void on_addTask_btn_clicked();
+	void on_sortByDeadline_clicked();
+	void on_sortByPriority_clicked();
+
+
 	void Dashboard::paintEvent(QPaintEvent* event);
 };
