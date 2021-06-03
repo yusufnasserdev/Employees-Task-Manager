@@ -1,20 +1,20 @@
 #include "Task.h"
 
-Task::Task(string title, string description, int id, short priority, QDateTime deadline, Employee assignee)
-	: m_title(title), m_description(description), m_id(id),
-	m_priority(priority), m_deadline(deadline), m_assignee(assignee)
+Task::Task(string title, string description, string username, int id, short priority, QDateTime deadline)
+	: m_title(title), m_description(description), m_assigneeUsername(username),
+	m_id(id), m_priority(priority), m_deadline(deadline)
 {
 }
 
-Task::Task(string title, string description, short priority, QDateTime assigningDate, QDateTime deadline, Employee assignee)
-	: m_title(title), m_description(description), m_priority(priority),
-	m_assigningDate(assigningDate), m_deadline(deadline), m_assignee(assignee)
+Task::Task(string title, string description, string username, short priority, QDateTime assigningDate, QDateTime deadline)
+	: m_title(title), m_description(description), m_assigneeUsername(username),
+	m_priority(priority), m_assigningDate(assigningDate), m_deadline(deadline)
 {
 	add();
 }
 
-Task::Task(int id, Employee assignee)
-	: m_id(id), m_assignee(assignee)
+Task::Task(int id)
+	: m_id(id)
 {
 	retrieve();
 }
@@ -42,6 +42,16 @@ void Task::postpone(const QDateTime& newDeadline)
 int Task::getId()
 {
 	return m_id;
+}
+
+short Task::getPriority() const
+{
+	return m_priority;
+}
+
+QDateTime Task::getDeadline() const
+{
+	return m_deadline;
 }
 
 void Task::retrieve()
@@ -78,7 +88,7 @@ void Task::add()
 	qry.bindValue(":m_assigningDate", m_assigningDate.toString(m_dateFormat).toStdString().c_str());
 	qry.bindValue(":m_deadline", m_deadline.toString(m_dateFormat).toStdString().c_str());
 	qry.bindValue(":m_priority", m_priority);
-	qry.bindValue(":m_employeeUsername", m_assignee.getUsername().c_str());
+	qry.bindValue(":m_employeeUsername", m_assigneeUsername.c_str());
 
 	qry.exec();
 	qry.clear();

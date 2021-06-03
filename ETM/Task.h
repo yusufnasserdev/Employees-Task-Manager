@@ -9,24 +9,22 @@ using namespace std;
 class Task : public SqlInterface
 {
 private:
-	string m_title, m_description;
+	string m_title, m_description, m_assigneeUsername;
 	int m_id;
 	short m_priority;
 	QDateTime m_assigningDate, m_deadline;
-	const Employee m_assignee;
 
 	void retrieve() override;
 	void add() override;
 	void update() override;
 
 public:
-	Task() = delete;
 	// Create a new task to use in runtime but won't be added to the DB
-	Task(string, string, int, short, QDateTime, Employee);
+	Task(string, string, string, int, short, QDateTime);
 	// Create a new task and add it to the DB
-	Task(string, string, short, QDateTime, QDateTime, Employee);
+	Task(string, string, string, short, QDateTime, QDateTime);
 	// Create an object to hold an existent task and retrieve its data from the DB
-	Task(int, Employee);
+	Task(int);
 	~Task();
 
 	void remove() override;
@@ -35,6 +33,8 @@ public:
 	void postpone(const QDateTime&);
 
 	int getId();
+	short getPriority() const;
+	QDateTime getDeadline() const;
 
 	static const char* m_dateFormat;
 };

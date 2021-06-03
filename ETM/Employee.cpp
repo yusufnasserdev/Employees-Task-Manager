@@ -5,6 +5,10 @@
 #include <iostream>
 
 
+Employee::Employee()
+{
+}
+
 Employee::Employee(string firstName, string lastName, string username, string email, string password)
 	: m_firstName(firstName), m_lastName(lastName),
 	m_username(username), m_email(email), m_password(password)
@@ -62,7 +66,36 @@ void Employee::remove()
 {
 }
 
-string Employee::getUsername() const
+const string Employee::getUsername() const
 {
 	return m_username;
+}
+
+const string Employee::getPassword(const string& username)
+{
+	string password = "";
+
+	QSqlDatabase db; db = QSqlDatabase::addDatabase("QSQLITE");
+	db.setDatabaseName("../Database/ETM_database.db");
+	db.open();
+
+	QSqlQuery qry;
+	qry.prepare("select password from Employee where username = :m_username");
+	qry.bindValue(":m_username", username.c_str());
+	if (qry.exec()) {
+		while (qry.next()) {
+			password = qry.value(0).toString().toUtf8().constData();
+		}
+	}
+	qry.clear();
+
+	db.close();
+	db.removeDatabase(QSqlDatabase::defaultConnection);
+
+	return password;
+}
+
+const string Employee::getFirstName() const
+{
+	return m_firstName;
 }

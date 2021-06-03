@@ -11,12 +11,18 @@ private:
 	void retrieve() override;
 
 public:
+	Employee();
 	Employee(string, string, string, string, string);
 	Employee(string, string);
 	~Employee();
+
+
 	void add() override;
 	void update() override;
 	void remove() override;
-	string getUsername() const;
+
+	const string getUsername() const;
+	static const string getPassword(const string& username);
+	const string getFirstName() const;
 };
 

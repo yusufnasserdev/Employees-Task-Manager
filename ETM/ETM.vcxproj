@@ -117,6 +117,7 @@
     <QtMoc Include="SignUp.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Comparators.h" />
     <ClInclude Include="Employee.h" />
     <ClInclude Include="globalVariables.h" />
     <ClInclude Include="SqlInterface.h" />

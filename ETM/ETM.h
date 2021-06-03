@@ -6,9 +6,11 @@
 #include <QRegularExpression>
 #include <QRegularExpressionValidator>
 #include <qdebug.h>
-#include<iostream>
+#include <iostream>
 #include "SignUp.h"
 #include "Dashboard.h"
+#include "globalHeader.h"
+#include "Employee.h"
 
 
 class ETM : public QMainWindow
@@ -23,6 +25,10 @@ private:
     bool passwordValid;
     SignUp* signUp;
     Dashboard* dashboard;
+    string m_username, m_password;
+
+    bool isCredentialsValid();
+
 private slots:
     void on_login_btn_clicked();
     void on_tosignup_btn_clicked();
