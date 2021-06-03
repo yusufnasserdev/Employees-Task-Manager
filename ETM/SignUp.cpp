@@ -62,22 +62,7 @@ void SignUp::on_sign_password_textChanged(QString password)
 	else {
 		ui.passwordWarning->setHidden(1);
 	}
-	//Debug area
-	/*
-	db = QSqlDatabase::addDatabase("QSQLITE");
-	db.setDatabaseName("ETM_database.db");
-	QSqlQuery d;
-	if (!db.open()) qDebug() << "error";
-	d.exec("select * from employee");
-	while (d.next()) {
-		qDebug()<<(d.value(0).toString());
-	}
-	d.clear();
-	db.close();
-	*/
-	//End Debug
 }
-
 
 
 void SignUp::on_sign_confirmpassword_textChanged(QString password)

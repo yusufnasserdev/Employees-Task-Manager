@@ -27,7 +27,6 @@ Employee::~Employee()
 
 void Employee::retrieve()
 {
-	opendb();
 	QSqlQuery qry;
 	qry.prepare("select firstName, secondName , email from Employee where username = :m_username");
 	qry.bindValue(":m_username", m_username.c_str());
@@ -39,12 +38,10 @@ void Employee::retrieve()
 		}
 	}
 	qry.clear();
-	closedb();
 }
 
 void Employee::add()
 {
-	opendb();
 	QSqlQuery qry;
 	qry.prepare("insert into Employee values(:m_username, :m_firstName, :m_lastName, :m_email, :m_password)");
 	qry.bindValue(":m_username", m_username.c_str());
@@ -54,7 +51,6 @@ void Employee::add()
 	qry.bindValue(":m_password", m_password.c_str());
 	qry.exec();
 	qry.clear();
-	closedb();
 
 }
 
@@ -75,10 +71,6 @@ const string Employee::getPassword(const string& username)
 {
 	string password = "";
 
-	QSqlDatabase db; db = QSqlDatabase::addDatabase("QSQLITE");
-	db.setDatabaseName("../Database/ETM_database.db");
-	db.open();
-
 	QSqlQuery qry;
 	qry.prepare("select password from Employee where username = :m_username");
 	qry.bindValue(":m_username", username.c_str());
@@ -88,9 +80,6 @@ const string Employee::getPassword(const string& username)
 		}
 	}
 	qry.clear();
-
-	db.close();
-	db.removeDatabase(QSqlDatabase::defaultConnection);
 
 	return password;
 }

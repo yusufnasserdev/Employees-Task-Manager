@@ -9,13 +9,8 @@ class SqlInterface
 {
 
 public:
-	QSqlDatabase db;
-
 	SqlInterface();
 	~SqlInterface();
-
-	bool opendb();
-	void closedb();
 
 	virtual void retrieve() = 0;
 	virtual void add() = 0;

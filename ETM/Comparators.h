@@ -8,7 +8,7 @@ struct ComparePriority {
             return true;
         }
         else if (t1.getPriority() == t2.getPriority()) {
-            if (t1.getDeadline() > t2.getDeadline()) {
+            if (t1.getDeadline() < t2.getDeadline()) {
                 return true;
             }
         }

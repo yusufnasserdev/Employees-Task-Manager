@@ -10,7 +10,7 @@
 #include "Task.h"
 #include "Comparators.h"
 
-class Dashboard : public QWidget, public SqlInterface
+class Dashboard : public QWidget
 {
 	Q_OBJECT
 
@@ -22,6 +22,8 @@ private:
 	Ui::Dashboard ui;
 	AddTask* addTask = new AddTask();
 	Employee m_user;
+	priority_queue<Task, vector<Task>, ComparePriority> *m_pqPriority;
+	priority_queue<Task, vector<Task>, CompareDeadline> *m_pqDeadline;
 
 	enum class SortingCriteria {
 		priority, deadline
@@ -33,10 +35,4 @@ private slots:
 	void on_logout_btn_clicked();
 	void on_addTask_btn_clicked();
 	void Dashboard::paintEvent(QPaintEvent* event);
-
-	// Inherited via SqlInterface
-	virtual void retrieve() override;
-	virtual void add() override;
-	virtual void update() override;
-	virtual void remove() override;
 };
