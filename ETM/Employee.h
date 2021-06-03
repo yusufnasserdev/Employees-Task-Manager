@@ -9,6 +9,7 @@ class Employee : public SqlInterface
 private:
 	string m_firstName, m_lastName, m_username, m_email, m_password;
 	void retrieve() override;
+	void add() override;
 
 public:
 	Employee();
@@ -17,7 +18,6 @@ public:
 	~Employee();
 
 
-	void add() override;
 	void update() override;
 	void remove() override;
 

@@ -31,6 +31,23 @@ bool SignUp::isEmailValid(QString email)
 	return re.match(email).hasMatch();
 }
 
+bool SignUp::isUniqueUsername()
+{
+	bool isUnique = true;
+	QSqlQuery qry;
+	qry.prepare("select username from Employee where username = :m_username");
+	qry.bindValue(":m_username", ui.sign_username->text());
+
+	if (qry.exec()) {
+		while (qry.next()) {
+			isUnique = false;
+		}
+	}
+
+	qry.clear();
+	return isUnique;
+}
+
 void SignUp::on_tosignIn_btn_clicked()
 {
 	ETM* signIn = new ETM();
@@ -80,5 +97,20 @@ void SignUp::on_sign_confirmpassword_textChanged(QString password)
 		ui.confirmPasswordWarning->setHidden(1);
 	}
 	qDebug() << passwordConfirmed;
+	}
+}
+
+void SignUp::on_signUp_clicked()
+{
+	if (!isUniqueUsername()) {
+		// Display message "Username is already used before"
+	}
+	else {
+		string firstName = ui.sign_firstname->text().toStdString();
+		string lastName = ui.sign_lastname->text().toStdString();
+		string username = ui.sign_username->text().toStdString();
+		string email = ui.sign_email->text().toStdString();
+		string password = ui.sign_password->text().toStdString();
+		Employee newEmployee(firstName, lastName, username, email, password);
 	}
 }

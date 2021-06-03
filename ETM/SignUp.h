@@ -18,10 +18,13 @@ private:
 	bool passwordValid;
 	bool passwordConfirmed;
 	bool isEmailValid(QString email);
+	bool isUniqueUsername();
+
 private slots:
 	void on_tosignIn_btn_clicked();
 	void on_sign_email_textChanged(QString email);
 	void on_sign_password_textChanged(QString password);
 	void on_sign_confirmpassword_textChanged(QString password);
+	void on_signUp_clicked();
 
 };
