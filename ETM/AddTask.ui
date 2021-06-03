@@ -9,7 +9,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
+    <width>383</width>
     <height>600</height>
    </rect>
   </property>
@@ -187,7 +187,7 @@ QCheckBox::indicator:disabled
 }
 </string>
   </property>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QLineEdit" name="title">
    <property name="geometry">
     <rect>
      <x>50</x>
@@ -203,7 +203,7 @@ QCheckBox::indicator:disabled
     <string>task title</string>
    </property>
   </widget>
-  <widget class="QDateEdit" name="dateEdit">
+  <widget class="QDateTimeEdit" name="deadline">
    <property name="geometry">
     <rect>
      <x>200</x>
@@ -211,6 +211,9 @@ QCheckBox::indicator:disabled
      <width>150</width>
      <height>30</height>
     </rect>
+   </property>
+   <property name="displayFormat">
+    <string>d/M/yyyy HH:mm</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_5">
@@ -231,7 +234,7 @@ QCheckBox::indicator:disabled
     <string>Ending date</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_2">
+  <widget class="QLineEdit" name="description">
    <property name="geometry">
     <rect>
      <x>50</x>
@@ -269,7 +272,7 @@ background-color: rgb(32, 37, 54)</string>
     <string>Priority</string>
    </property>
   </widget>
-  <widget class="QSpinBox" name="spinBox">
+  <widget class="QSpinBox" name="priority">
    <property name="geometry">
     <rect>
      <x>200</x>
@@ -303,7 +306,7 @@ background-color: rgb(32, 37, 54)</string>
     <string>Assigning date</string>
    </property>
   </widget>
-  <widget class="QDateEdit" name="dateEdit_2">
+  <widget class="QDateTimeEdit" name="assigningDate">
    <property name="geometry">
     <rect>
      <x>200</x>
@@ -316,6 +319,9 @@ background-color: rgb(32, 37, 54)</string>
     <font>
      <pointsize>8</pointsize>
     </font>
+   </property>
+   <property name="displayFormat">
+    <string>d/M/yyyy HH:mm</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_7">

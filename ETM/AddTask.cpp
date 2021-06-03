@@ -2,12 +2,11 @@
 #include "globalHeader.h"
 #include "globalVariables.h"
 #include "Dashboard.h"
-AddTask::AddTask(QWidget *parent)
-	: QWidget(parent)
+AddTask::AddTask(Employee user, QWidget* parent)
+	: QWidget(parent), m_assignee(user)
 {
 	ui.setupUi(this);
 	setAttribute(Qt::WA_DeleteOnClose);
-
 }
 
 AddTask::~AddTask()
@@ -16,12 +15,13 @@ AddTask::~AddTask()
 
 void AddTask::on_addTask_btn_clicked()
 {
-	// Debug area
-	//Dashboard* dashboard = new Dashboard();
-	//dashboard->show();'
-	//ui.lineEdit->setText("");
-	//ui.lineEdit_2->setText("");
-	// End Debug
+	string title = ui.title->text().toStdString();
+	string description = ui.description->text().toStdString();
+	string assignee = m_assignee.getUsername();
+	short priority = ui.priority->value();
+	QDateTime assigningDate = ui.assigningDate->dateTime();
+	QDateTime deadline = ui.deadline->dateTime();
+	Task newTask(title, description, assignee, priority, assigningDate, deadline);
 	close();
 }
 
