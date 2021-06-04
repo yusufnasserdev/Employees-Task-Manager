@@ -43,6 +43,7 @@ private:
 		priority, priorityReversed, deadline, deadlineReversed
 	};
 
+	void refresh();
 	void getTasks();
 	void viewTasks(SortingCriteria sortingCriteria);
 

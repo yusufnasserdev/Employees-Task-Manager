@@ -1,2 +1,2 @@
 #pragma once
-extern bool isShown;
+extern bool isShown, isClosed;

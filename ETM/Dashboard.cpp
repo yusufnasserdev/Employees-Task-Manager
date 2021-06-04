@@ -14,6 +14,8 @@ Dashboard::Dashboard(Employee user, QWidget* parent)
 	string greeting = "Hi, " + firstname;
 	ui.label->setText(greeting.c_str());
 
+	addTask = new AddTask(m_user);
+
 	model = new QStandardItemModel();
 	parentItem = model->invisibleRootItem();
 	item = new QStandardItem();
@@ -43,11 +45,17 @@ Dashboard::Dashboard(Employee user, QWidget* parent)
 
 Dashboard::~Dashboard()
 {
-	//delete addTask;
+	delete addTask;
 	delete m_pqPriority;
 	delete m_pqDeadline;
 	delete model;
 	delete item;
+}
+
+void Dashboard::refresh()
+{
+	getTasks();
+	viewTasks(SortingCriteria::priority);
 }
 
 void Dashboard::getTasks()
@@ -185,12 +193,9 @@ void Dashboard::viewTasks(SortingCriteria sortingCriteria)
 
 void Dashboard::deleteTaskBtn()
 {
-	//todo
-	//you have to load the pq again in order to delete the record from the tableview
-	QSqlQuery qry;
-	qry.prepare("DELETE from Task where id = :m_id");
-	qry.bindValue(":m_id",rowID);
-	qDebug()<<qry.exec();
+	Task deletedTask(rowID);
+	deletedTask.remove();
+	refresh();
 }
 
 void Dashboard::editTaskBtn()
@@ -217,7 +222,6 @@ void Dashboard::on_logout_btn_clicked()
 void Dashboard::on_addTask_btn_clicked()
 {
 	if (!isShown) {
-		addTask = new AddTask(m_user);
 		addTask->show();
 		isShown = true;
 	}
@@ -230,6 +234,9 @@ void Dashboard::paintEvent(QPaintEvent* event)
 {
 	ui.addTask_btn->setDisabled(isShown);
 	rowID = ui.tableView->currentIndex().siblingAtColumn(0).data().toInt();
+	if (isClosed) {
+		refresh();
+	}
 
 }
 

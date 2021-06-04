@@ -3,7 +3,7 @@
 #include "SignUp.h"
 #include "globalVariables.h"
 
-bool isShown = false;
+bool isShown = false, isClosed = false;
 
 QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
 

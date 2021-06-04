@@ -125,10 +125,8 @@ void Task::remove()
 {
 	QSqlQuery qry;
 	qry.prepare("DELETE FROM Task WHERE id = :m_id");
-
-	qry.bindValue(":m_id", to_string(m_id).c_str());
-
-	qry.exec();
+	qry.bindValue(":m_id", m_id);
+	qDebug() << qry.exec();
 	qry.clear();
 }
 

@@ -12,6 +12,7 @@ AddTask::AddTask(Employee user, QWidget* parent)
 
 AddTask::~AddTask()
 {
+	isClosed = true;
 }
 
 void AddTask::on_addTask_btn_clicked()
