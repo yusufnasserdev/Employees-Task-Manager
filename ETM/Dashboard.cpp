@@ -22,8 +22,8 @@ Dashboard::Dashboard(Employee user, QWidget* parent)
 
 	m_pqPriority = new priority_queue<Task, vector<Task>, ComparePriority>();
 	m_pqDeadline = new priority_queue<Task, vector<Task>, CompareDeadline>();
-	
-	
+
+
 	getTasks();
 	viewTasks(SortingCriteria::priority);
 	//Header settings
@@ -108,7 +108,7 @@ void Dashboard::viewTasks(SortingCriteria sortingCriteria)
 			connect(delete_btn, SIGNAL(clicked()), this, SLOT(deleteTaskBtn()));
 			pqTemp.pop();
 		}
-		
+
 	}
 	else if (sortingCriteria == SortingCriteria::priorityReversed) {
 		priority_queue<Task, vector<Task>, ComparePriority> pqTemp = *m_pqPriority;
@@ -203,13 +203,15 @@ void Dashboard::editTaskBtn()
 	edittask = new editTask();
 	edittask->excuteqry(rowID);
 	edittask->show();
+	refresh();
 }
 
 void Dashboard::postponeTaskBtn()
 {
-	 postponetask = new postponeTask();
-	 postponetask->excuteqry(rowID);
+	postponetask = new postponeTask();
+	postponetask->excuteqry(rowID);
 	postponetask->show();
+	refresh();
 }
 
 void Dashboard::on_logout_btn_clicked()
