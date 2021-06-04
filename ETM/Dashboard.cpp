@@ -15,6 +15,7 @@ Dashboard::Dashboard(Employee user, QWidget* parent)
 	ui.label->setText(greeting.c_str());
 
 	addTask = new AddTask(m_user);
+	showtask = new showTask();
 
 	model = new QStandardItemModel();
 	parentItem = model->invisibleRootItem();
@@ -38,13 +39,12 @@ Dashboard::Dashboard(Employee user, QWidget* parent)
 	ui.tableView->model()->setHeaderData(7, Qt::Horizontal, tr("Edit date"));
 	ui.tableView->model()->setHeaderData(8, Qt::Horizontal, tr("Delete"));
 	ui.tableView->hideColumn(0);
-	ui.tableView->horizontalHeader()->setStretchLastSection(true);
-
-
+	ui.tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 }
 
 Dashboard::~Dashboard()
 {
+	delete showtask;
 	delete addTask;
 	delete m_pqPriority;
 	delete m_pqDeadline;
@@ -227,9 +227,6 @@ void Dashboard::on_addTask_btn_clicked()
 		addTask->show();
 		isShown = true;
 	}
-	else {
-		qDebug() << "not today";
-	}
 }
 
 void Dashboard::paintEvent(QPaintEvent* event)
@@ -244,8 +241,7 @@ void Dashboard::paintEvent(QPaintEvent* event)
 
 void Dashboard::on_tableView_doubleClicked()
 {
-	showtask = new showTask();
-	showtask->excuteqry(rowID);
+	showtask->setTask(rowID);
 	showtask->show();
 }
 

@@ -10,19 +10,11 @@ QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
 void opendb()
 {
 	db.setDatabaseName("../Database/ETM_database.db");
-	if (db.open())
-	{
-		cout << "DB is open\n";
-	}
-	else
-	{
-		cout << "DB is NOT open\n";
-	}
+	db.open();
 }
 
 void closedb()
 {
-	cout << "DB Closed\n";
 	db.close();
 	db.removeDatabase(QSqlDatabase::defaultConnection);
 }

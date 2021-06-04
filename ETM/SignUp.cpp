@@ -106,7 +106,6 @@ void SignUp::on_sign_confirmpassword_textChanged(QString password)
 		singUpValidator = true;
 		ui.confirmPasswordWarning->setHidden(1);
 	}
-	qDebug() << passwordConfirmed;
 	}
 }
 

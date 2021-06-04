@@ -25,6 +25,10 @@
   <property name="windowTitle">
    <string>EmployeesTaskManager</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>res/progIco.png</normaloff>res/progIco.png</iconset>
+  </property>
   <property name="styleSheet">
    <string notr="true">/*Copyright (c) DevSec Studio. All rights reserved.
 
@@ -315,7 +319,7 @@ QPushButton::hover
      <x>0</x>
      <y>0</y>
      <width>400</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

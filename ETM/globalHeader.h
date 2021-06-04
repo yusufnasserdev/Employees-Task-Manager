@@ -12,7 +12,6 @@ bool static isPasswordValid(QString password) {
 QRegularExpression re;
     QString pattern = "^(?=.*\\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\\w\\d\\s:])([^\\s]){8,40}$";
     re.setPattern(pattern);
-    qDebug() << password;
     return re.match(password).hasMatch();
 }
 

@@ -9,6 +9,7 @@ ETM::ETM(QWidget* parent)
 	ui.setupUi(this);
 	ui.signinWarning->hide();
 	ui.signinWarning->setDisabled(1);
+	setWindowTitle("Tasky");
 }
 
 
