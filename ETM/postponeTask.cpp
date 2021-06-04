@@ -3,6 +3,7 @@
 postponeTask::postponeTask(QWidget *parent)
 	: QWidget(parent)
 {
+	this->setFixedSize(400, 300);
 	ui.setupUi(this);
 	setAttribute(Qt::WA_DeleteOnClose);
 	ui.title->setDisabled(true);

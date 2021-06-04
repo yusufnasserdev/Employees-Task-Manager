@@ -3,6 +3,7 @@
 editTask::editTask(QWidget *parent)
 	: QWidget(parent)
 {
+	this->setFixedSize(400, 550);
 	ui.setupUi(this);
 	setAttribute(Qt::WA_DeleteOnClose);
 

@@ -9,7 +9,9 @@ Dashboard::Dashboard(Employee user, QWidget* parent)
 	this->setFixedSize(800, 600);
 	ui.setupUi(this);
 	setAttribute(Qt::WA_DeleteOnClose);
-	string greeting = "Hi, " + m_user.getFirstName();
+	string firstname = m_user.getFirstName();
+	firstname[0] = firstname[0] - 32;
+	string greeting = "Hi, " + firstname;
 	ui.label->setText(greeting.c_str());
 
 	model = new QStandardItemModel();
@@ -23,7 +25,6 @@ Dashboard::Dashboard(Employee user, QWidget* parent)
 	getTasks();
 	viewTasks(SortingCriteria::priority);
 	//Header settings
-	//ui.tableView->horizontalHeader()->resizeSections(QHeaderView::Fixed);
 	ui.tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
 	ui.tableView->model()->setHeaderData(0, Qt::Horizontal, tr("ID"));
 	ui.tableView->model()->setHeaderData(1, Qt::Horizontal, tr("Title"));
@@ -35,6 +36,7 @@ Dashboard::Dashboard(Employee user, QWidget* parent)
 	ui.tableView->model()->setHeaderData(7, Qt::Horizontal, tr("Edit date"));
 	ui.tableView->model()->setHeaderData(8, Qt::Horizontal, tr("Delete"));
 	ui.tableView->hideColumn(0);
+	ui.tableView->horizontalHeader()->setStretchLastSection(true);
 
 
 }
@@ -87,6 +89,9 @@ void Dashboard::viewTasks(SortingCriteria sortingCriteria)
 			model->setData(model->index(i, 3), pqTemp.top().getAssigningDate());
 			model->setData(model->index(i, 4), pqTemp.top().getDeadline());
 			model->setData(model->index(i, 5), pqTemp.top().getPriority());
+			ui.tableView->setColumnWidth(6, 16);
+			ui.tableView->setColumnWidth(7, 16);
+			ui.tableView->setColumnWidth(8, 20);
 			ui.tableView->setIndexWidget(model->index(i, 6), edit_btn);
 			ui.tableView->setIndexWidget(model->index(i, 7), postpone_btn);
 			ui.tableView->setIndexWidget(model->index(i, 8), delete_btn);

@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>843</width>
+    <width>800</width>
     <height>600</height>
    </rect>
   </property>
@@ -189,8 +189,8 @@ QCheckBox::indicator:disabled
     <rect>
      <x>10</x>
      <y>20</y>
-     <width>101</width>
-     <height>21</height>
+     <width>211</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="font">
@@ -207,7 +207,7 @@ QCheckBox::indicator:disabled
     <rect>
      <x>0</x>
      <y>250</y>
-     <width>821</width>
+     <width>800</width>
      <height>341</height>
     </rect>
    </property>
@@ -259,7 +259,7 @@ QCheckBox::indicator:disabled
    <property name="geometry">
     <rect>
      <x>-40</x>
-     <y>40</y>
+     <y>60</y>
      <width>150</width>
      <height>41</height>
     </rect>

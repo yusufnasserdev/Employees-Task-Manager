@@ -16,6 +16,12 @@
     <verstretch>0</verstretch>
    </sizepolicy>
   </property>
+  <property name="maximumSize">
+   <size>
+    <width>400</width>
+    <height>600</height>
+   </size>
+  </property>
   <property name="windowTitle">
    <string>EmployeesTaskManager</string>
   </property>
@@ -231,7 +237,7 @@ QCheckBox::indicator:disabled
     <property name="geometry">
      <rect>
       <x>150</x>
-      <y>300</y>
+      <y>310</y>
       <width>100</width>
       <height>40</height>
      </rect>
@@ -250,7 +256,7 @@ QCheckBox::indicator:disabled
     <property name="geometry">
      <rect>
       <x>110</x>
-      <y>370</y>
+      <y>380</y>
       <width>180</width>
       <height>40</height>
      </rect>
@@ -281,32 +287,25 @@ QPushButton::hover
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="signinWarning">
+   <widget class="QLabel" name="signinWarning">
     <property name="geometry">
      <rect>
-      <x>260</x>
-      <y>310</y>
-      <width>41</width>
-      <height>21</height>
+      <x>50</x>
+      <y>280</y>
+      <width>211</width>
+      <height>16</height>
      </rect>
     </property>
-    <property name="toolTip">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; color:#ffffff;&quot;&gt;Either the Username or the Password invalid&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-    </property>
-    <property name="whatsThis">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; color:#ffffff;&quot;&gt;Please Enter a Valid Username and Password&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">border: none;
-color:rgba(240,78,78,10);
-background-color: rgba(78, 78, 78, 10);</string>
+     <string notr="true">color:white;</string>
     </property>
     <property name="text">
-     <string/>
-    </property>
-    <property name="icon">
-     <iconset>
-      <normaloff>res/exclamation-mark.png</normaloff>res/exclamation-mark.png</iconset>
+     <string>Either username or password invalid!</string>
     </property>
    </widget>
   </widget>
@@ -316,7 +315,7 @@ background-color: rgba(78, 78, 78, 10);</string>
      <x>0</x>
      <y>0</y>
      <width>400</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>

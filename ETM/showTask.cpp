@@ -3,6 +3,7 @@
 showTask::showTask(QWidget *parent)
 	: QWidget(parent)
 {
+	this->setFixedSize(400, 600);
 	ui.setupUi(this);
 	setDisabled(true);
 	setAttribute(Qt::WA_DeleteOnClose);
