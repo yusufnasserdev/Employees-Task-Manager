@@ -10,7 +10,10 @@
 #include "Employee.h"
 #include "Task.h"
 #include "Comparators.h"
-
+#include "customButton.h"
+#include "postponeTask.h"
+#include "showTask.h"
+#include "editTask.h"
 class Dashboard : public QWidget
 {
 	Q_OBJECT
@@ -27,8 +30,14 @@ private:
 	priority_queue<Task, vector<Task>, CompareDeadline> *m_pqDeadline;
 	QStandardItemModel* model;
 	QStandardItem* parentItem, *item;
-
+	customButton* edit_btn;
+	customButton* postpone_btn;
+	customButton* delete_btn;
 	bool priorityReversed = true, deadlineReversed = true;
+	postponeTask* postponetask;
+	editTask* edittask;
+	showTask* showtask;
+	int rowID;
 
 	enum class SortingCriteria {
 		priority, priorityReversed, deadline, deadlineReversed
@@ -42,7 +51,9 @@ private slots:
 	void on_addTask_btn_clicked();
 	void on_sortByDeadline_clicked();
 	void on_sortByPriority_clicked();
-
-
-	void Dashboard::paintEvent(QPaintEvent* event);
+	void on_tableView_doubleClicked();
+	void paintEvent(QPaintEvent* event);
+	void deleteTaskBtn();
+	void editTaskBtn();
+	void postponeTaskBtn();
 };

@@ -17,6 +17,10 @@ SignUp::SignUp(QWidget *parent)
 	ui.passwordWarning->setDisabled(1);
 	ui.confirmPasswordWarning->hide();
 	ui.confirmPasswordWarning->setDisabled(1);
+	ui.usernameWarning->hide();
+	ui.usernameWarning->setDisabled(1);
+	ui.signupWarning->hide();
+	ui.signupWarning->setDisabled(1);
 }
 
 SignUp::~SignUp()
@@ -61,8 +65,10 @@ void SignUp::on_sign_email_textChanged(QString email)
 	 ui.sign_email->setStyleSheet(stylesheet);
 	 if (stylesheet== "background-color: rgba(240, 78, 78, 50);") {
 		 ui.emailWarning->setHidden(0);
+		 singUpValidator = false;
 	}else{
 		 ui.emailWarning->setHidden(1);
+		 singUpValidator = true;
 	 }
 }
 
@@ -75,8 +81,10 @@ void SignUp::on_sign_password_textChanged(QString password)
 	ui.sign_password->setStyleSheet(stylesheet);
 	if (stylesheet == "background-color: rgba(240, 78, 78, 50);") {
 		ui.passwordWarning->setHidden(0);
+		singUpValidator = false;
 	}
 	else {
+		singUpValidator = true;
 		ui.passwordWarning->setHidden(1);
 	}
 }
@@ -92,20 +100,38 @@ void SignUp::on_sign_confirmpassword_textChanged(QString password)
 	ui.sign_confirmpassword->setStyleSheet(stylesheet);
 	if (stylesheet == "background-color: rgba(240, 78, 78, 50);") {
 		ui.confirmPasswordWarning->setHidden(0);
+		singUpValidator = false;
 	}
 	else {
+		singUpValidator = true;
 		ui.confirmPasswordWarning->setHidden(1);
 	}
 	qDebug() << passwordConfirmed;
 	}
 }
 
-void SignUp::on_signUp_clicked()
+void SignUp::on_sign_username_textEdited(QString username)
 {
-	if (!isUniqueUsername()) {
-		// Display message "Username is already used before"
+	QString stylesheet = fieldValidation(isUniqueUsername(),username);
+	ui.sign_username->setStyleSheet(stylesheet);
+	if (stylesheet == "background-color: rgba(240, 78, 78, 50);") {
+		ui.usernameWarning->setHidden(0);
+		singUpValidator = false;
 	}
 	else {
+		ui.usernameWarning->setHidden(1);
+		singUpValidator = true;
+	}
+}
+
+void SignUp::on_signUp_clicked()
+{
+	singUpValidator = singUpValidator && !(ui.sign_firstname->text().isEmpty() || ui.sign_lastname->text().isEmpty() || ui.sign_password->text().isEmpty() || ui.sign_confirmpassword->text().isEmpty() || ui.sign_email->text().isEmpty() || ui.sign_username->text().isEmpty());
+	if (!singUpValidator) {
+		ui.signupWarning->setHidden(0);
+	}
+	else {
+		ui.signupWarning->setHidden(1);
 		string firstName = ui.sign_firstname->text().toStdString();
 		string lastName = ui.sign_lastname->text().toStdString();
 		string username = ui.sign_username->text().toStdString();
@@ -114,3 +140,5 @@ void SignUp::on_signUp_clicked()
 		Employee newEmployee(firstName, lastName, username, email, password);
 	}
 }
+
+

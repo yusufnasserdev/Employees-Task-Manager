@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Dashboard</class>
- <widget class="QWidget" name="Dashboard">
+ <class>showTask</class>
+ <widget class="QWidget" name="showTask">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>843</width>
+    <width>383</width>
     <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dashboard</string>
+   <string>showTask</string>
   </property>
   <property name="styleSheet">
    <string notr="true">/*Copyright (c) DevSec Studio. All rights reserved.
@@ -184,187 +184,159 @@ QCheckBox::indicator:disabled
 }
 </string>
   </property>
-  <widget class="QLabel" name="label">
+  <widget class="QLineEdit" name="title">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>20</y>
-     <width>101</width>
-     <height>21</height>
+     <x>40</x>
+     <y>50</y>
+     <width>300</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="placeholderText">
+    <string>task title</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="description">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>350</y>
+     <width>290</width>
+     <height>201</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: none;
+background-color: rgb(32, 37, 54)</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+   </property>
+   <property name="placeholderText">
+    <string>Description</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>190</y>
+     <width>121</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>14</pointsize>
+     <pointsize>12</pointsize>
     </font>
    </property>
    <property name="text">
-    <string>Username</string>
+    <string>Ending date</string>
    </property>
   </widget>
-  <widget class="QTableView" name="tableView">
+  <widget class="QLabel" name="label_7">
    <property name="geometry">
     <rect>
-     <x>0</x>
+     <x>40</x>
+     <y>300</y>
+     <width>111</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Description</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
      <y>250</y>
-     <width>821</width>
-     <height>341</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QHeaderView::section 
-{
-    background-color: #292f45;
-    color: white;
-}</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="addTask_btn">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>190</y>
-     <width>161</width>
-     <height>41</height>
+     <width>71</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <pointsize>12</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
     </font>
    </property>
-   <property name="layoutDirection">
-    <enum>Qt::LeftToRight</enum>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">border-color: rgb(32, 37, 54)</string>
-   </property>
    <property name="text">
-    <string>Addtask</string>
-   </property>
-   <property name="icon">
-    <iconset>
-     <normaloff>res/add-button.png</normaloff>res/add-button.png</iconset>
-   </property>
-   <property name="iconSize">
-    <size>
-     <width>32</width>
-     <height>32</height>
-    </size>
+    <string>Priority</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="logout_btn">
+  <widget class="QSpinBox" name="priority">
    <property name="geometry">
     <rect>
-     <x>-40</x>
-     <y>40</y>
+     <x>190</x>
+     <y>250</y>
      <width>150</width>
-     <height>41</height>
+     <height>30</height>
     </rect>
    </property>
-   <property name="cursor">
-    <cursorShape>PointingHandCursor</cursorShape>
+   <property name="minimum">
+    <number>1</number>
    </property>
-   <property name="layoutDirection">
-    <enum>Qt::LeftToRight</enum>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">/*-----QPushButton-----*/
-QPushButton
-{
-	background-color: #292f45;
-	color: #b9b9bb;
-	font-weight: bold;
-	border-color: #292f45;
-	text-decoration:underline;
-}
-
-QPushButton::hover
-{
-	color: #fff;
-}</string>
-   </property>
-   <property name="text">
-    <string>Log out</string>
-   </property>
-   <property name="flat">
-    <bool>true</bool>
+   <property name="maximum">
+    <number>10</number>
    </property>
   </widget>
-  <widget class="QPushButton" name="sortByPriority">
+  <widget class="QDateTimeEdit" name="deadline">
    <property name="geometry">
     <rect>
-     <x>710</x>
+     <x>190</x>
      <y>190</y>
-     <width>41</width>
-     <height>41</height>
+     <width>150</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="displayFormat">
+    <string>d/M/yyyy HH:mm</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>130</y>
+     <width>131</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <pointsize>12</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
     </font>
    </property>
-   <property name="layoutDirection">
-    <enum>Qt::LeftToRight</enum>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">border-color: rgb(32, 37, 54);
-border: none;</string>
-   </property>
    <property name="text">
-    <string/>
-   </property>
-   <property name="icon">
-    <iconset>
-     <normaloff>res/list.png</normaloff>res/list.png</iconset>
-   </property>
-   <property name="iconSize">
-    <size>
-     <width>32</width>
-     <height>32</height>
-    </size>
+    <string>Assigning date</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="sortByDeadline">
+  <widget class="QDateTimeEdit" name="assigningDate">
    <property name="geometry">
     <rect>
-     <x>650</x>
-     <y>190</y>
-     <width>41</width>
-     <height>41</height>
+     <x>190</x>
+     <y>130</y>
+     <width>150</width>
+     <height>30</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>12</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
+     <pointsize>8</pointsize>
     </font>
    </property>
-   <property name="layoutDirection">
-    <enum>Qt::LeftToRight</enum>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">border-color: rgb(32, 37, 54);
-border: none;</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="icon">
-    <iconset>
-     <normaloff>res/deadline.png</normaloff>res/deadline.png</iconset>
-   </property>
-   <property name="iconSize">
-    <size>
-     <width>32</width>
-     <height>32</height>
-    </size>
+   <property name="displayFormat">
+    <string>d/M/yyyy HH:mm</string>
    </property>
   </widget>
  </widget>

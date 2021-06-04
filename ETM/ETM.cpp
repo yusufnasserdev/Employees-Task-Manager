@@ -7,6 +7,8 @@ ETM::ETM(QWidget* parent)
 {
 	this->setFixedSize(400, 600);
 	ui.setupUi(this);
+	ui.signinWarning->hide();
+	ui.signinWarning->setDisabled(1);
 }
 
 
@@ -15,22 +17,27 @@ bool ETM::isCredentialsValid()
 	m_username = ui.main_username->text().toStdString();
 	m_password = ui.main_password->text().toStdString();
 
+	if (ui.main_password->text().isEmpty() || ui.main_username->text().isEmpty())
+	{
+		return false;
+	}
 	if (Employee::getPassword(m_username) == m_password) {
 		return true;
 	}
-
 	return false;
 }
 
 void ETM::on_login_btn_clicked()
 {
+
 	if (isCredentialsValid()) {
+		ui.signinWarning->setHidden(1);
 		dashboard = new Dashboard(Employee(m_username, m_password));
 		dashboard->show();
 		close();
 	}
 	else {
-		// Display "Password or username is wrong"
+		ui.signinWarning->setHidden(0);
 	}
 }
 
