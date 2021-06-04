@@ -235,6 +235,9 @@ QCheckBox::indicator:disabled
    <property name="text">
     <string>Sign Up</string>
    </property>
+   <property name="shortcut">
+    <string>Return</string>
+   </property>
   </widget>
   <widget class="QLineEdit" name="sign_password">
    <property name="geometry">
