@@ -188,7 +188,7 @@ QCheckBox::indicator:disabled
 }
 </string>
   </property>
-  <widget class="QPushButton" name="edi_btn">
+  <widget class="QPushButton" name="edit_btn">
    <property name="geometry">
     <rect>
      <x>140</x>

@@ -14,6 +14,7 @@
 #include "postponeTask.h"
 #include "showTask.h"
 #include "editTask.h"
+
 class Dashboard : public QWidget
 {
 	Q_OBJECT

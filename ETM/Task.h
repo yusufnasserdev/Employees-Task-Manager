@@ -19,8 +19,6 @@ private:
 	void update() override;
 
 public:
-	// Create a new task to use in runtime but won't be added to the DB
-	Task(string, string, string, int, short, QDateTime);
 	// Create a new task and add it to the DB
 	Task(string, string, string, short, QDateTime, QDateTime);
 	// Create an object to hold an existent task and retrieve its data from the DB
@@ -38,6 +36,10 @@ public:
 	short getPriority() const;
 	QDateTime getDeadline() const;
 	QDateTime getAssigningDate() const;
+
+	void setTitle(const string& title);
+	void setDescription(const string& description);
+	void setPriority(const int& priority);
 
 	static const char* m_dateFormat;
 };

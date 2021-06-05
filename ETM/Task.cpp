@@ -1,11 +1,5 @@
 #include "Task.h"
 
-Task::Task(string title, string description, string username, int id, short priority, QDateTime deadline)
-	: m_title(title), m_description(description), m_assigneeUsername(username),
-	m_id(id), m_priority(priority), m_deadline(deadline)
-{
-}
-
 Task::Task(string title, string description, string username, short priority, QDateTime assigningDate, QDateTime deadline)
 	: m_title(title), m_description(description), m_assigneeUsername(username),
 	m_priority(priority), m_assigningDate(assigningDate), m_deadline(deadline)
@@ -67,6 +61,21 @@ QDateTime Task::getDeadline() const
 QDateTime Task::getAssigningDate() const
 {
 	return m_assigningDate;
+}
+
+void Task::setTitle(const string& title)
+{
+	this->m_title = title;
+}
+
+void Task::setDescription(const string& description)
+{
+	this->m_description = description;
+}
+
+void Task::setPriority(const int& priority)
+{
+	this->m_priority = priority;
 }
 
 void Task::retrieve()

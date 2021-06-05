@@ -24,6 +24,8 @@ Dashboard::Dashboard(Employee user, QWidget* parent)
 	m_pqPriority = new priority_queue<Task, vector<Task>, ComparePriority>();
 	m_pqDeadline = new priority_queue<Task, vector<Task>, CompareDeadline>();
 
+	postponetask = new postponeTask();
+	edittask = new editTask();
 
 	getTasks();
 	viewTasks(SortingCriteria::priority);
@@ -50,6 +52,11 @@ Dashboard::~Dashboard()
 	delete m_pqDeadline;
 	delete model;
 	delete item;
+	delete postponetask;
+	delete edittask;
+	delete edit_btn;
+	delete postpone_btn;
+	delete delete_btn;
 }
 
 void Dashboard::refresh()
@@ -88,24 +95,29 @@ void Dashboard::viewTasks(SortingCriteria sortingCriteria)
 		priority_queue<Task, vector<Task>, ComparePriority> pqTemp = *m_pqPriority;
 		model->setRowCount(pqTemp.size());
 		for (int i = 0; !pqTemp.empty(); i++) {
+
 			edit_btn = new customButton("edit");
 			postpone_btn = new customButton("postpone");
 			delete_btn = new customButton("delete");
+			
 			model->setData(model->index(i, 0), pqTemp.top().getId());
 			model->setData(model->index(i, 1), pqTemp.top().getTitle().c_str());
 			model->setData(model->index(i, 2), pqTemp.top().getDescription().c_str());
 			model->setData(model->index(i, 3), pqTemp.top().getAssigningDate());
 			model->setData(model->index(i, 4), pqTemp.top().getDeadline());
 			model->setData(model->index(i, 5), pqTemp.top().getPriority());
+			
 			ui.tableView->setColumnWidth(6, 16);
 			ui.tableView->setColumnWidth(7, 16);
 			ui.tableView->setColumnWidth(8, 20);
 			ui.tableView->setIndexWidget(model->index(i, 6), edit_btn);
 			ui.tableView->setIndexWidget(model->index(i, 7), postpone_btn);
 			ui.tableView->setIndexWidget(model->index(i, 8), delete_btn);
+			
 			connect(edit_btn, SIGNAL(clicked()), this, SLOT(editTaskBtn()));
 			connect(postpone_btn, SIGNAL(clicked()), this, SLOT(postponeTaskBtn()));
 			connect(delete_btn, SIGNAL(clicked()), this, SLOT(deleteTaskBtn()));
+			
 			pqTemp.pop();
 		}
 
@@ -120,6 +132,7 @@ void Dashboard::viewTasks(SortingCriteria sortingCriteria)
 			edit_btn = new customButton("edit");
 			postpone_btn = new customButton("postpone");
 			delete_btn = new customButton("delete");
+
 			model->setData(model->index(i, 0), pqTemp.top().getId());
 			model->setData(model->index(i, 1), pqTemp.top().getTitle().c_str());
 			model->setData(model->index(i, 2), pqTemp.top().getDescription().c_str());
@@ -146,6 +159,7 @@ void Dashboard::viewTasks(SortingCriteria sortingCriteria)
 			edit_btn = new customButton("edit");
 			postpone_btn = new customButton("postpone");
 			delete_btn = new customButton("delete");
+
 			model->setData(model->index(i, 0), pqTemp.top().getId());
 			model->setData(model->index(i, 1), pqTemp.top().getTitle().c_str());
 			model->setData(model->index(i, 2), pqTemp.top().getDescription().c_str());
@@ -172,6 +186,7 @@ void Dashboard::viewTasks(SortingCriteria sortingCriteria)
 			edit_btn = new customButton("edit");
 			postpone_btn = new customButton("postpone");
 			delete_btn = new customButton("delete");
+
 			model->setData(model->index(i, 0), pqTemp.top().getId());
 			model->setData(model->index(i, 1), pqTemp.top().getTitle().c_str());
 			model->setData(model->index(i, 2), pqTemp.top().getDescription().c_str());
@@ -200,16 +215,15 @@ void Dashboard::deleteTaskBtn()
 
 void Dashboard::editTaskBtn()
 {
-	edittask = new editTask();
-	edittask->excuteqry(rowID);
+
+	edittask->viewTask(rowID);
 	edittask->show();
 	refresh();
 }
 
 void Dashboard::postponeTaskBtn()
 {
-	postponetask = new postponeTask();
-	postponetask->excuteqry(rowID);
+	postponetask->viewTask(rowID);
 	postponetask->show();
 	refresh();
 }
@@ -235,6 +249,7 @@ void Dashboard::paintEvent(QPaintEvent* event)
 	rowID = ui.tableView->currentIndex().siblingAtColumn(0).data().toInt();
 	if (isClosed) {
 		refresh();
+		isClosed = false;
 	}
 
 }

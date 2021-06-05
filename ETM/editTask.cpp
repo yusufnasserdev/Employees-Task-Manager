@@ -11,29 +11,31 @@ editTask::editTask(QWidget *parent)
 
 editTask::~editTask()
 {
+	isClosed = true;
 }
 
-void editTask::excuteqry(int rowID)
+void editTask::viewTask(int id)
 {
-	QSqlQuery qry;
-	qry.prepare("select title,priority,description from task where id = :m_rowID");
-	qry.bindValue(":m_rowID",rowID);
-
-	if (qry.exec()) {
-		while (qry.next()) {
-			ui.title->setText(qry.value(0).toString());
-			ui.priority->setValue(qry.value(1).toInt());
-			ui.description->setText(qry.value(2).toString());
-		}
-		
-	}
-
-	qry.clear();
+	this->rowID = id;
+	Task editedTask(rowID);
+	ui.title->setText(editedTask.getTitle().c_str());
+	ui.priority->setValue(editedTask.getPriority());
+	ui.description->setText(editedTask.getDescription().c_str());
 }
 
-void editTask::editqry(int rowID)
+void editTask::excute()
 {
-	//TODO
+	
+}
+
+void editTask::on_edit_btn_clicked()
+{
+	Task oldTask(rowID), editedTask(rowID);
+	editedTask.setTitle(ui.title->text().toStdString());
+	editedTask.setTitle(ui.description->document()->toPlainText().toStdString());
+	editedTask.setPriority(ui.priority->value());
+	oldTask.edit(editedTask);
+	close();
 }
 
 

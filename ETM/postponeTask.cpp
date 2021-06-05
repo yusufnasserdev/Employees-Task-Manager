@@ -7,31 +7,29 @@ postponeTask::postponeTask(QWidget *parent)
 	ui.setupUi(this);
 	setAttribute(Qt::WA_DeleteOnClose);
 	ui.title->setDisabled(true);
-
 }
 
 postponeTask::~postponeTask()
 {
+	isClosed = true;
 }
 
-void postponeTask::excuteqry(int rowID)
+void postponeTask::viewTask(int id)
 {
-	QSqlQuery qry;
-	qry.prepare("select title,endingDate from task where id = :m_rowID");
-	qry.bindValue(":m_rowID", rowID);
-
-	if (qry.exec()) {
-		while (qry.next()) {
-			ui.title->setText(qry.value(0).toString());
-			ui.deadline->setDateTime(qry.value(1).toDateTime());
-		}
-
-	}
-
-	qry.clear();
+	this->rowID = id;
+	Task editedTask(rowID);
+	ui.title->setText(editedTask.getTitle().c_str());
+	ui.deadline->setDateTime(editedTask.getDeadline());
 }
 
-void postponeTask::editqry(int rowID)
+void postponeTask::editDeadline()
 {
-	//TODO
+	Task editedTask(rowID);
+	editedTask.postpone(ui.deadline->dateTime());
+}
+
+void postponeTask::on_pushButton_clicked()
+{
+	editDeadline();
+	close();
 }
