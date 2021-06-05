@@ -137,6 +137,9 @@ void SignUp::on_signUp_clicked()
 		string email = ui.sign_email->text().toStdString();
 		string password = ui.sign_password->text().toStdString();
 		Employee newEmployee(firstName, lastName, username, email, password);
+		ETM* signIn = new ETM();
+		signIn->show();
+		close();
 	}
 }
 

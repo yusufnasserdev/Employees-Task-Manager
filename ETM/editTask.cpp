@@ -32,7 +32,7 @@ void editTask::on_edit_btn_clicked()
 {
 	Task oldTask(rowID), editedTask(rowID);
 	editedTask.setTitle(ui.title->text().toStdString());
-	editedTask.setTitle(ui.description->document()->toPlainText().toStdString());
+	editedTask.setDescription(ui.description->document()->toPlainText().toStdString());
 	editedTask.setPriority(ui.priority->value());
 	oldTask.edit(editedTask);
 	close();

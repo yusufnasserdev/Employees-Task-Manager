@@ -14,6 +14,8 @@
 #include "postponeTask.h"
 #include "showTask.h"
 #include "editTask.h"
+#include <QMessageBox>
+#include <random>
 
 class Dashboard : public QWidget
 {
@@ -38,8 +40,11 @@ private:
 	postponeTask* postponetask;
 	editTask* edittask;
 	showTask* showtask;
+	QMessageBox msg;
+	QString alertmsg;
 	int rowID;
-
+	string qoutes[10];
+	int qoutenum;
 	enum class SortingCriteria {
 		priority, priorityReversed, deadline, deadlineReversed
 	};
@@ -47,6 +52,7 @@ private:
 	void refresh();
 	void getTasks();
 	void viewTasks(SortingCriteria sortingCriteria);
+	void showReminder();
 
 private slots:
 	void on_logout_btn_clicked();

@@ -12,7 +12,7 @@ public:
 			icon1.addFile(QString::fromUtf8("res/calendar.png"), QSize(), QIcon::Normal, QIcon::Off);
 		}
 		else {
-			icon1.addFile(QString::fromUtf8("res/delete.png"), QSize(), QIcon::Normal, QIcon::Off);
+			icon1.addFile(QString::fromUtf8("res/done.png"), QSize(), QIcon::Normal, QIcon::Off);
 
 		}
 			setIcon(icon1);
