@@ -7,13 +7,14 @@
 #include <QtSql/QSqlQuery>
 #include <qdebug.h>
 #include <Qthread>
+
 bool static isPasswordValid(QString password) {
 QRegularExpression re;
     QString pattern = "^(?=.*\\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\\w\\d\\s:])([^\\s]){8,40}$";
     re.setPattern(pattern);
-    qDebug() << password;
     return re.match(password).hasMatch();
 }
+
 QString  static fieldValidation(bool isValid, QString passwordText) {
 
     if (passwordText == "") {
@@ -24,6 +25,5 @@ QString  static fieldValidation(bool isValid, QString passwordText) {
     }
     return "background-color: rgba(240, 78, 78, 50);";
 }
-QSqlDatabase static db;
 
 

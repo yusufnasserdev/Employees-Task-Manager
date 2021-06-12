@@ -13,7 +13,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{0D12E0AB-21DC-4C14-B62E-E91325D92D4E}</ProjectGuid>
     <Keyword>QtVS_v304</Keyword>
-    <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">10.0.18362.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">10.0.19041.0</WindowsTargetPlatformVersion>
     <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">10.0.19041.0</WindowsTargetPlatformVersion>
     <QtMsBuild Condition="'$(QtMsBuild)'=='' OR !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
   </PropertyGroup>
@@ -60,12 +60,12 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(QMake_INCLUDEPATH_);$(Qt_LIBS_)$(Qt_LIBPATH_)$(Qt_INCLUDEPATH_);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(QMake_INCLUDEPATH_);$(Qt_INCLUDEPATH_);.\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(QMake_INCLUDEPATH_);$(Qt_LIBS_)$(Qt_LIBPATH_)$(Qt_INCLUDEPATH_);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(QMake_INCLUDEPATH_);$(Qt_INCLUDEPATH_);.\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
@@ -97,17 +97,23 @@
   <ItemGroup>
     <ClCompile Include="AddTask.cpp" />
     <ClCompile Include="Dashboard.cpp" />
+    <ClCompile Include="editTask.cpp" />
     <ClCompile Include="Employee.cpp" />
+    <ClCompile Include="postponeTask.cpp" />
+    <ClCompile Include="showTask.cpp" />
     <ClCompile Include="SignUp.cpp" />
     <ClCompile Include="SqlInterface.cpp" />
     <ClCompile Include="Task.cpp" />
     <QtRcc Include="ETM.qrc" />
     <QtUic Include="AddTask.ui" />
     <QtUic Include="Dashboard.ui" />
+    <QtUic Include="editTask.ui" />
     <QtUic Include="ETM.ui" />
     <QtMoc Include="ETM.h" />
     <ClCompile Include="ETM.cpp" />
     <ClCompile Include="main.cpp" />
+    <QtUic Include="postponeTask.ui" />
+    <QtUic Include="showTask.ui" />
     <QtUic Include="SignUp.ui" />
   </ItemGroup>
   <ItemGroup>
@@ -117,8 +123,13 @@
     <QtMoc Include="SignUp.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Comparators.h" />
+    <ClInclude Include="customButton.h" />
+    <QtMoc Include="editTask.h" />
     <ClInclude Include="Employee.h" />
     <ClInclude Include="globalVariables.h" />
+    <QtMoc Include="postponeTask.h" />
+    <QtMoc Include="showTask.h" />
     <ClInclude Include="SqlInterface.h" />
     <ClInclude Include="Task.h" />
     <QtMoc Include="Dashboard.h" />
