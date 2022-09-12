@@ -60,7 +60,12 @@ private slots:
 	void on_sortByDeadline_clicked();
 	void on_sortByPriority_clicked();
 	void on_tableView_doubleClicked();
-	void paintEvent(QPaintEvent* event);
+
+	 /// <summary>
+	 /// A paint event is a request to repaint all or part of a widget. It can happen when the widget was obscured and has now been uncovered.
+	 /// </summary>
+	 /// <param name="event">A QPaintEvent</param>
+	void paintEvent(QPaintEvent* event) override;
 	void deleteTaskBtn();
 	void editTaskBtn();
 	void postponeTaskBtn();

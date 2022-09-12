@@ -63,7 +63,6 @@ Dashboard::Dashboard(Employee user, QWidget* parent)
 
 Dashboard::~Dashboard()
 {
-	
 	delete m_pqPriority;
 	delete m_pqDeadline;
 }
@@ -71,6 +70,7 @@ Dashboard::~Dashboard()
 void Dashboard::refresh()
 {
 	getTasks();
+	cout << "Refresh called." << endl;
 	viewTasks(SortingCriteria::priority);
 	if (m_pqPriority->empty()) {
 		qoutenum = rand() % 10;
@@ -243,7 +243,7 @@ void Dashboard::deleteTaskBtn()
 {
 	Task deletedTask(rowID);
 	deletedTask.remove();
-	refresh();
+	//refresh();
 
 	if (!m_pqPriority->empty()) {
 		showReminder();
@@ -255,7 +255,7 @@ void Dashboard::editTaskBtn()
 	edittask = new editTask();
 	edittask->viewTask(rowID);
 	edittask->show();
-	refresh();
+	//refresh();
 }
 
 void Dashboard::postponeTaskBtn()
@@ -263,7 +263,7 @@ void Dashboard::postponeTaskBtn()
 	postponetask = new postponeTask();
 	postponetask->viewTask(rowID);
 	postponetask->show();
-	refresh();
+	//refresh();
 }
 
 void Dashboard::on_logout_btn_clicked()
@@ -292,8 +292,6 @@ void Dashboard::paintEvent(QPaintEvent* event)
 	}
 
 }
-
-
 
 void Dashboard::on_tableView_doubleClicked()
 {
