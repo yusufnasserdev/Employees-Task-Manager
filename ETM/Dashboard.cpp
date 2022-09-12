@@ -243,7 +243,6 @@ void Dashboard::deleteTaskBtn()
 {
 	Task deletedTask(rowID);
 	deletedTask.remove();
-	//refresh();
 
 	if (!m_pqPriority->empty()) {
 		showReminder();
@@ -255,7 +254,6 @@ void Dashboard::editTaskBtn()
 	edittask = new editTask();
 	edittask->viewTask(rowID);
 	edittask->show();
-	//refresh();
 }
 
 void Dashboard::postponeTaskBtn()
@@ -263,7 +261,6 @@ void Dashboard::postponeTaskBtn()
 	postponetask = new postponeTask();
 	postponetask->viewTask(rowID);
 	postponetask->show();
-	//refresh();
 }
 
 void Dashboard::on_logout_btn_clicked()
